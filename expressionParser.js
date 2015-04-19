@@ -32,7 +32,7 @@ function ExpressionParser() {
          var rhs = parseAddExpression(tokens);
          return new Expression.BinaryExpression(lhs, opToken.getTokenType(), rhs);
       }
-      
+
       return lhs;
    }
 
@@ -55,6 +55,10 @@ function ExpressionParser() {
    // primaryExpression := '(' addExpression ')' | '-' primaryExpression | NUMBER
    var parsePrimaryExpression = function(tokens) {
       var token = tokens.shift();
+
+      if (!token) {
+         throwUnexpectedEnd();
+      }
 
       // '(' addExpression ')'
       if (token.getTokenType() === Token.TOKEN_TYPE.LEFT_BRACKET) {

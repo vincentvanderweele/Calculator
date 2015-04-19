@@ -7,7 +7,7 @@ var Calculator = require('../calculator');
 
 describe('Calculator', function() {
    describe('visitConstExpression', function() {
-      it('should set the value of a const expression', function() {
+      it('should calculate the value of a const expression', function() {
          var result = calculateConstExpression(5);
          assert.strictEqual(5, result);
       });
@@ -54,6 +54,14 @@ describe('Calculator', function() {
             var result = calculateBinaryExpression(6, Token.TOKEN_TYPE.NUMBER, 2);
          }, function(err) {
             return err.message === 'Unsupported binary operator: ' + Token.TOKEN_TYPE.NUMBER;
+         });
+      });
+
+      it('should fail on division by zero', function() {
+         assert.throws(function() {
+            var result = calculateBinaryExpression(6, Token.TOKEN_TYPE.OVER, 0);
+         }, function(err) {
+            return err.message === 'Division by 0';
          });
       });
    });

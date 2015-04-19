@@ -2,7 +2,7 @@
 
 var assert = require("assert");
 var Token = require("../token");
-var ExpressionParser = require("../parser");
+var ExpressionParser = require("../expressionParser");
 
 describe('ExpressionParser', function() {
    describe('parseExpression', function() {
@@ -142,6 +142,17 @@ describe('ExpressionParser', function() {
             var expression = expressionParser.parseExpression(tokens);
          }, function(err) {
             return err.message === 'Unexpected token ) at position 7';
+         });
+      });
+
+      it('should not allow incomplete expressions', function() {
+         var tokens = createTokens('2*');
+         var expressionParser = new ExpressionParser();
+
+         assert.throws(function() {
+            var expression = expressionParser.parseExpression(tokens);
+         }, function(err) {
+            return err.message === 'Unexpected end of expression';
          });
       });
    });
