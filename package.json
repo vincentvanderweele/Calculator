@@ -1,0 +1,29 @@
+{
+  "name": "Calculator",
+  "version": "1.0.0",
+  "description": "A simple webservice implementing a calculator",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vincentvanderweele/Calculator"
+  },
+  "keywords": [
+    "calculator"
+  ],
+  "author": "Vincent van der Weele",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vincentvanderweele/Calculator/issues"
+  },
+  "homepage": "https://github.com/vincentvanderweele/Calculator"
+}
