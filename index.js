@@ -12,7 +12,7 @@ app.get('/calculus', function(request, response) {
    try {
       var query = request.query.query;
       if (!query) {
-         throw new Error('Parameter "query" not specified');
+         throw new Error('Parameter \'query\' not specified');
       }
       var expression = new Buffer(query, 'base64').toString('utf8');
 
