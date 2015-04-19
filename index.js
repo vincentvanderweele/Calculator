@@ -3,6 +3,8 @@
 var express = require('express');
 var ExpressionCalculator = require('./expressionCalculator');
 
+var calculator = new ExpressionCalculator();
+
 var app = express();
 app.set('port', (process.env.PORT || 5000));
 
@@ -16,7 +18,7 @@ app.get('/calculus', function(request, response) {
 
       console.log("input: " + expression);
 
-      var result = new ExpressionCalculator().calculate(expression);
+      var result = calculator.calculate(expression);
 
       console.log("result: " + result);
 
